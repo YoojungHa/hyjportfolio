@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Noto+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  background-color: #1e1e1e;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container {
+  overflow:hidden;
+}
+
+.container h1 {
+  color: #fff;
+  font-size: 5rem;
+  text-transform: uppercase;
+}
+
+.container h1 span {
+  display: inline-block;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>animation</h1>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+        const h1 = document.querySelector("h1");
+const text = "animation";
+const arr = text.split("");
+
+generateText(arr);
+
+function generateText(text) {
+  text.forEach((data) => {
+    const span = document.createElement("span");
+    span.classList.add("char");
+    span.innerHTML = data;
+    h1.appendChild(span);
+  });
+}
+
+// gsap
+gsap.from(".char", {
+  y: 100,
+  stagger: 0.07,
+  delay: 0.2,
+  ease: "back.out",
+  duration: 1,
+});
+
+    </script>
+  </body>
+</html>
